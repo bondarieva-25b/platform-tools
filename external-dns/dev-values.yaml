@@ -1,0 +1,19 @@
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: EXTERNAL_DNS_ROLE_ARN_PLACEHOLDER
+
+provider: 
+  name: aws
+policy: upsert-only
+
+sources:
+  - ingress
+
+domainFilters:
+  - team312.com
+
+annotationFilter: "external-dns.alpha.kubernetes.io/hostname"
+
+txtOwnerId: fp-eks
+
+logLevel: info
