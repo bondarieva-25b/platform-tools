@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-team312-tls-cert
+  namespace: ingress-nginx
+spec:
+  secretName: wildcard-team312-tls-secret
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+  dnsNames:
+    - "*.team312.com"
+    - "team312.com"
