@@ -7,7 +7,6 @@ on:
     branches:
       - feature/**
       - main
-      - monitoring
 
 permissions:
   id-token: write
@@ -22,7 +21,7 @@ jobs:
     environment: |
           ${{
             github.ref == 'refs/heads/main' && 'dev' ||
-            github.ref == 'refs/heads/monitoring' && 'dev' ||
+            github.ref == 'refs/heads/develop' && 'dev' ||
             startsWith(github.ref, 'refs/heads/feature/') && 'dev'
           }}
 
