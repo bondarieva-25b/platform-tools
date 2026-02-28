@@ -100,3 +100,15 @@ jobs:
           helm upgrade --install external-dns ./external-dns \
           --namespace external-dns --create-namespace \
           --values external-dns/${{ vars.STAGE }}-values.yaml
+
+      - name: Deploy Prometheus
+        run: |
+          helm upgrade --install prometheus monitoring/prometheus/ \
+          --namespace monitoring --create-namespace \
+          --values monitoring/prometheus/${{ vars.STAGE }}-values.yaml
+
+      - name: Deploy Grafana
+        run: |
+          helm upgrade --install grafana monitoring/grafana/ \
+          --namespace monitoring --create-namespace \
+          --values monitoring/grafana/${{ vars.STAGE }}-values.yaml
