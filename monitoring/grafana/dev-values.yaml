@@ -1,0 +1,18 @@
+namespace: monitoring
+
+grafana:
+  image:
+    repository: grafana/grafana
+    tag: "11.1.0"
+  secretsManagerSecretName: fp-eks-grafana-admin-creds
+  datasourceUrl: http://prometheus-server.monitoring:9090
+  irsaRoleArn: "arn:aws:iam::058316962389:role/fp-eks-grafana-role"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+  ingress:
+    hostname: grafana.team312.com
+    whitelistSourceRange: "108.71.132.112/32"
