@@ -1,0 +1,5 @@
+apiVersion: v2
+name: grafana
+description: Custom Grafana chart for EKS monitoring
+version: 1.0.0
+appVersion: "11.1.0"

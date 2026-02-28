@@ -437,6 +437,7 @@ spec:
         - --validating-webhook-certificate=/usr/local/certificates/cert
         - --validating-webhook-key=/usr/local/certificates/key
         - --enable-metrics=false
+        - --default-ssl-certificate=ingress-nginx/wildcard-team312-tls-secret
         env:
         - name: POD_NAME
           valueFrom:
