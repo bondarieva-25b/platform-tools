@@ -108,3 +108,12 @@ jobs:
           helm upgrade --install grafana monitoring/grafana/ \
           --namespace monitoring --create-namespace \
           --values monitoring/grafana/${{ vars.STAGE }}-values.yaml
+
+      - name: Deploy Karpenter
+        run: |
+          sed -i "s|KARPENTER_ROLE_ARN_PLACEHOLDER|${{ vars.KARPENTER_CONTROLLER_ROLE_ARN }}|g" karpenter/${{ vars.STAGE }}-values.yaml
+          sed -i "s|CLUSTER_ENDPOINT_PLACEHOLDER|${{ vars.CLUSTER_ENDPOINT }}|g" karpenter/${{ vars.STAGE }}-values.yaml
+          helm upgrade --install karpenter ./karpenter \
+            --namespace karpenter --create-namespace \
+            --values karpenter/${{ vars.STAGE }}-values.yaml \
+            --wait
