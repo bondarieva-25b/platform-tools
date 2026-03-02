@@ -48,6 +48,12 @@ jobs:
             --values karpenter/${{ vars.STAGE }}-values.yaml \
             --wait
 
+      - name: Apply Karpenter CRDs
+        run: |
+          sed -i "s|KARPENTER_NODE_ROLE_PLACEHOLDER|${{ vars.KARPENTER_NODE_ROLE_NAME }}|g" karpenter/ec2nodeclass.yaml
+          kubectl apply -f karpenter/nodepool.yaml
+          kubectl apply -f karpenter/ec2nodeclass.yaml
+          
       # Deploy the nginx ingress controller (required before any Ingress resources)
       - name: Deploy ingress-nginx controller
         run: |
