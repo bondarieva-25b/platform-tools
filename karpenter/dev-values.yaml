@@ -2,6 +2,8 @@ serviceAccount:
   annotations:
     eks.amazonaws.com/role-arn: KARPENTER_ROLE_ARN_PLACEHOLDER
 
+replicas: 1
+
 settings:
   clusterName: fp-eks
   clusterEndpoint: CLUSTER_ENDPOINT_PLACEHOLDER
