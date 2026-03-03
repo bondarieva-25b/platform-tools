@@ -1,6 +1,6 @@
 serviceAccount:
   annotations:
-    eks.amazonaws.com/role-arn: EXTERNAL_DNS_ROLE_ARN_PLACEHOLDER
+    eks.amazonaws.com/role-arn: arn:aws:iam::058316962389:role/fp-eks-external-dns-role
 
 provider: 
   name: aws
