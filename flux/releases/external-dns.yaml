@@ -17,5 +17,4 @@ spec:
         name: platform-tools
       interval: 5m
       valuesFiles:
-        - ./external-dns/values.yaml
         - ./external-dns/dev-values.yaml
