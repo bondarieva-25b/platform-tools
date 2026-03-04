@@ -119,7 +119,7 @@ serviceMonitor:
   targetLabels: []
 
 # === DEV OVERRIDES ===
-logLevel: info
+logLevel: debug
 logFormat: text
 
 interval: 1m
