@@ -42,6 +42,7 @@ rbac:
 
 service:
   port: 7979
+  annotations: {}
 
 podSecurityContext:
   runAsNonRoot: true
