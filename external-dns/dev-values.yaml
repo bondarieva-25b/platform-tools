@@ -18,3 +18,5 @@ txtOwnerId: fp-eks
 
 logLevel: debug
 
+serviceMonitor:
+  enabled: false

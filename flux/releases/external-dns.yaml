@@ -16,17 +16,5 @@ spec:
         kind: GitRepository
         name: platform-tools
       interval: 5m
-  values:
-    serviceAccount:
-      annotations:
-        eks.amazonaws.com/role-arn: arn:aws:iam::058316962389:role/fp-eks-external-dns-role
-    provider:
-      name: aws
-    policy: sync
-    sources:
-      - ingress
-    domainFilters:
-      - team312.com
-    annotationFilter: "external-dns.alpha.kubernetes.io/hostname"
-    txtOwnerId: fp-eks
-    logLevel: info
+      valuesFiles:
+        - ./external-dns/dev-values.yaml
