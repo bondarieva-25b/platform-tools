@@ -1,5 +1,6 @@
 global:
   imagePullSecrets: []
+  _placeholder: true
 
 image:
   repository: registry.k8s.io/external-dns/external-dns
