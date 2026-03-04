@@ -105,12 +105,12 @@ jobs:
           WILDCARD_CERT_NAME: wildcard-team312-tls-cert
         run: ./tls-bootstrap/bootstrap-tls.sh
 
-      - name: Deploy External-DNS
-        run: |
-          sed -i "s|EXTERNAL_DNS_ROLE_ARN_PLACEHOLDER|${{ vars.EXTERNAL_DNS_ROLE_ARN }}|g" external-dns/${{ vars.STAGE }}-values.yaml
-          helm upgrade --install external-dns ./external-dns \
-          --namespace external-dns --create-namespace \
-          --values external-dns/${{ vars.STAGE }}-values.yaml
+      # - name: Deploy External-DNS
+      #   run: |
+      #     sed -i "s|EXTERNAL_DNS_ROLE_ARN_PLACEHOLDER|${{ vars.EXTERNAL_DNS_ROLE_ARN }}|g" external-dns/${{ vars.STAGE }}-values.yaml
+      #     helm upgrade --install external-dns ./external-dns \
+      #     --namespace external-dns --create-namespace \
+      #     --values external-dns/${{ vars.STAGE }}-values.yaml
 
       - name: Deploy Prometheus
         run: |

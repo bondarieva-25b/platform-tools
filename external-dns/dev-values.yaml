@@ -16,4 +16,5 @@ annotationFilter: "external-dns.alpha.kubernetes.io/hostname"
 
 txtOwnerId: fp-eks
 
-logLevel: info
+logLevel: debug
+
